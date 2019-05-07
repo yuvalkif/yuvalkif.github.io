@@ -1,0 +1,236 @@
+
+body {
+    min-width: 1366px;
+    min-height: 768px;  
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+     background-color:#FFE4C4; 
+  }
+  
+
+
+  #signinbtn{
+    position: absolute;
+    top:600px;
+    left:50px;
+  }
+
+  #signupbtn{
+    position: absolute;
+    top:600px;
+    left:350px;
+  }
+
+  .navbar {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .divs{
+    color : #B8860B;
+    background-color: #FFE4C4 ;
+  }
+
+  .navbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .navbar a:hover {
+    background-color: rgb(14, 185, 43);
+    color: black;
+  }
+  
+  .navbar a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+
+  #welcome{
+    width: 100%;
+    height: 670px;
+  }
+
+  #logo{
+    width : 300px; 
+    height : 50px;
+    float:right;
+
+  }
+
+  #restartbtn{
+    position:absolute;
+    top:200px;
+    left:50;
+  }
+
+  .button{
+      display: inline-block ;
+      padding: 0.3em 1.2em ;
+      border: 0.1em solid rgba(255,255,255,0);
+      margin: 0 3em 0.1em 2em ;
+      border-radius: 2em ;
+      box-sizing: border-box ;
+      text-decoration: none;
+      font-family: 'Roboto',sans-serif;
+      font-weight: 300;
+      color:#FFFFFF;
+      text-align:center;
+      transition: all 0.2s ;
+  }
+
+  .button:hover{
+      border-color: rgba(255,255,255,1);
+  }
+
+  #canvas{
+      position: relative;
+      top:50px;
+      left:300px;
+      border: 3px solid black;
+  }
+
+  .labels{
+      position: absolute;
+      margin : 0 5px 0 0;
+  }
+
+  #lblScore{
+    top:70px;
+    left:230px;
+    width:80px;
+  }
+
+  #lblTime{
+    top:70px;
+    left:380px;
+    width:80px;
+  }
+
+  #tlabel{
+    top:70px;
+    left:320px;
+  }
+
+  #gameTime{
+    position: absolute;
+    top:70px;
+    left:480px;
+  }
+
+  #ttlabel{
+    position: absolute;
+    top:70px;
+    left:580px;
+  }
+
+  #slabel{
+    top:70px;
+    left:160px;
+  }
+
+  #pname{
+    position: absolute;
+    top:70px;
+    left:100px;
+  
+  }
+
+  #plabel{
+      position: absolute;
+      top:70px;  
+      text-decoration-color: bisque;
+  }
+
+  #firstHeart{
+    position: absolute;
+    top:100px;
+    left:40px;
+  }
+
+  #secondHeart{
+    position: absolute;
+    top:100px;
+    left:65px;
+  }
+
+  #thirdHeart{
+    position: absolute;
+    top:100px;
+    left:90px;
+  }
+
+  #lifeCount{
+    position: absolute;
+    top:100px;
+  }
+
+  /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}  
+
+/* Modal Header */
+.modal-header {
+  padding: 2px 16px;
+  background-color: #333;
+  color: white;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #333;
+  color: white;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}

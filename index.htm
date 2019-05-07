@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" type="text/css" href="pacmanCSS.css" />
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<section class="navbar">
+    <img src="sprites\\logo.jpg" id="logo">;
+    <a href="#signup" onclick="showPage('#signup')" >Register</a>
+    <a href="#signin" onclick="showPage('#login')" >Sign-in</a>
+    <a href="#welcome" onclick="showPage('#welcome')" >Welcome</a>
+        <a href="#about" id="modalOpener">About</a>
+</section>
+
+<section >
+    <div id = "game" class="divs">
+        <div class="labels" id="slabel"><strong>Score :</strong></div>
+        <div class="labels" id="tlabel" ><strong>Time : </strong></div>
+        <div class="labels" id="plabel"><strong>Player Name :</strong></div>
+        <div class="labels" id="pname"><strong></strong></div>
+        <div class ="labels" id="gameTime"><strong>Game Time : </strong></div>
+        <div class="labels" id="ttlabel"><strong></strong></div>
+        <input class="labels" id="lblScore" type="text" >
+        <input class="labels" id="lblTime" type="text" >
+        <input id="firstHeart" type="image" src="sprites\\life.png" height="25px" width="25px">
+        <input id="secondHeart" type="image" src="sprites\\life.png" height="25px" width="25px">
+        <input id="thirdHeart" type="image" src="sprites\\life.png" height="25px" width="25px">
+        <div id="lifeCount" ><strong>Life : </strong> </div>
+
+        <input class="button" style="background-color:#4e9af1" type="button" id="restartbtn" value="Restart Game" onclick="javascript:start()"> 
+        <canvas id="canvas" height="600" width="600"></canvas>
+    </div>
+</section>
+
+<section >
+    <div id="welcome" class="divs">
+        <br>
+        <br>
+        <br>
+        <p><strong>Welcome to Pacman game site .<br>
+            if you are already registered , sign in and start playing . if not , the register is easy 
+            and quick , and you will be playing in no time .
+        </strong></p>
+        <br>
+    
+        <image src="sprites\\background.jpg"></image>
+        <input class="button" style="background-color:#9a4ef1" type="button" id="signinbtn" value="Sign In">
+        <input class="button" style="background-color:#9a4ef1" type="button" id="signupbtn" value="Register">
+    </div>
+</section>
+
+<section  >
+    <div id="signup">
+
+        <br>
+        <div class="w3-container w3-blue">
+            <h2>Register</h2>
+        </div>
+        <br>
+    <form id="signupform" class="w3-container" > 
+
+        First Name : <input class="w3-input" type="text" name="first name" id="fnamefield">
+        <br>
+        Last Name : <input class="w3-input" type="text" name="last name" id="lnamefield">
+        <br>
+        Username : <input class="w3-input" type="text" name="username" id="unamefield">
+        <br>
+        Password : <input class="w3-input"  type="text" name="password" id="passfield">
+        <br>
+        Email : <input class="w3-input" type="text" name="@address" id="efield">
+        <br>
+        Birth Date : <input class="w3-input" type="date" id="datepicker">
+        <br>
+        <br>
+        <input style="background-color:#4ef18f" class="button" type="button" id="doneSignUp" value="Submit" >
+        <input style="background-color:#4ef18f" class="button" type="button" id="backFromSignUpToWelcome" value="Back" >
+
+
+        </form>
+
+    </div>  
+</section>
+
+<section >
+    <div id="configurations" >
+  
+       
+    <strong>Choose left key : </strong><input class="w3-input" type="text" id="lkey" onkeyup="javascript:fixKeyCodes(this.id)" onkeydown="javascript: return getKeyCode(event,this.id)" value='ArrowLeft'>
+    <br>
+    <strong>Choose right key :</strong><input class="w3-input" type="text" id="rkey" onkeyup="javascript:fixKeyCodes(this.id)" onkeydown="javascript:return getKeyCode(event,this.id)" value='ArrowRight'>
+    <br>
+    <strong>Choose up key :</strong><input class="w3-input" type="text" id="ukey" onkeyup="javascript:fixKeyCodes(this.id)" onkeydown="javascript:return getKeyCode(event,this.id)" value='ArrowUp'>
+    <br>
+    <strong>Choose down key : </strong><input class="w3-input" type="text" id="dkey" onkeyup="javascript:fixKeyCodes(this.id)" onkeydown="javascript:return getKeyCode(event,this.id)" value='ArrowDown'>
+    <br>
+    <strong>Count : </strong><input class="w3-input" type="text" id="foodCountField" value="60" onfocus="document.getElementById('foodCountField').value=''">
+    <br>
+    <strong>5 Points Color :</strong> <input class="w3-input" type="color" id="5pointsColor" >
+    <br>
+    <strong>15 Points Color : </strong><input class="w3-input" type="color" id="15pointsColor" >
+    <br>
+    <strong>25 Points Color : </strong><input class="w3-input" type="color" id="25pointsColor" >
+    <br>
+    <strong>Time limit : </strong><input class="w3-input" type="text" id="timeLimitField" value='60' onfocus="document.getElementById('timeLimitField').value =''">
+    <br>
+    <strong>Monsters Count : </strong><input class="w3-input" type="text" id="monstersCount" value='1' onfocus="document.getElementById('monstersCount').value=''">
+    <br>
+    <br>
+    <br>
+    <input style="background-color:#9a4ef1" class="button" type="button" id="configDone" value="Done"> 
+    <input style="background-color:#9a4ef1" class="button" type="button" id="configRandom" value="Random">
+    <br>
+    <br>
+    <br>
+
+
+    </div>
+</section>
+
+<section >
+    <div id="login" class="w3-container" class="divs">
+    <br>
+    <div class="w3-container w3-blue">
+        <h2>Sign in</h2>
+    </div>
+    <br>
+    <form id="signinform" class="w3-container">
+    Username : <input class="w3-input" type="text" value='' id="usernameInput">
+    <br>
+    Passowrd : <input class="w3-input" type="text" value='' id="passwordInput">
+    <br>
+    <br>
+    <br>
+    <input class="button"style="background-color:#4e9af1"  type="button" id="doneSignIn" value="Sign In">
+    <input class="button" style="background-color:#4e9af1" type="button" id="backFromSignInToWelcome" value="Back">
+  </form>
+    </div>
+</section>
+
+<div id="aboutModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>About</h2>
+        </div>
+        <div class="modal-body">
+            <p>Useage of jQuery : 
+For checking fields the user enters , as required in the aassignment details</p>
+            <p>Template : 
+Css template from wc3 open source for the signup / configurations / signin pages</p>
+            <p>Difficulties :
+Main difficulty was to debug</p>
+
+<p>
+    when the game time reaches half of its limit , a clock will appear on the field , which adds 15 bonus seconds upon taking
+</p>
+<p>
+    candys will spawn in random places once in a while . make sure to take them for x2 points for 10 seconds ! 
+</p>
+        </div>
+        <div class="modal-footer">
+            <h3>Adam:301914388 Yuval:204386858</h3>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</body>
+<br>
+<br>
+<br>
+<footer class="footer">
+  <address>
+    Postal Address: Door No.00, Street, City, State, Country.
+  </address>
+  <p>Copyright © 2018 All rights reserved.</p>
+</footer>
+
+
+
+
+<script src="game\\variables.js"></script>
+<script src="pages\\signScript.js"></script>
+<script src="pages\\playerConfig.js" ></script>
+<script src="pages\\pageScript.js" ></script>
+<script src="game\\objectsScript.js"></script>
+<script src="game\\boardScript.js"></script>
+<script src="game\\gameScript.js"></script>
+<script src="pages\\aboutScript.js"></script>
+
+
+
+</html>
